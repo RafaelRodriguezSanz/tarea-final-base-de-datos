@@ -5,7 +5,7 @@ services:
     container_name: postgres
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     restart: always
     environment:
       POSTGRES_DB: postgres
@@ -13,8 +13,6 @@ services:
       POSTGRES_PASSWORD: postgres
     volumes:
       - ./data:/var/lib/postgresql/data
-      - ./config/postgresql.conf:/var/lib/postgresql/data/postgresql.conf
-
     sysctls:
       #- kernel.shmall=2048
       - kernel.sem=32000 1048576000	500	5000
